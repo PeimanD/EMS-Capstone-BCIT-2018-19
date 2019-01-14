@@ -51,21 +51,22 @@ void setup() {
   delay(2000);
   display.clearDisplay();   // clears the screen and buffer
   // text display tests
-  display.setTextSize(2);
+  display.setTextSize(1);
   display.setTextColor(BLACK);
   display.setCursor(0,0);
   display.println("HOME Sweet Home!!!");
+  display.display(); 
   delay (2000);
 //  display.setTextColor(WHITE, BLACK); // 'inverted' text
 //  display.println(3.141592);
-  display.setTextSize(2);
+  display.setTextSize(1);
   display.setTextColor(BLACK);
-  display.println("0x"); 
-  display.println(0xDEADBEEF, HEX);
-  display.display(); 
-  delay(2000);
-  display.clearDisplay();
-  display.display();
+//  display.println("0x"); 
+//  display.println(0xDEADBEEF, HEX);
+//  display.display(); 
+//  delay(2000);
+//  display.clearDisplay();
+//  display.display();
   
   // invert the display
   // display.invertDisplay(true); // no invert put "false"
@@ -76,15 +77,18 @@ void setup() {
 
   //connect to WiFi
   Serial.printf("Connecting to %s ", ssid);
+
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
+
   }
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+  display.clearDisplay();
 }
 
 // =========================================================
@@ -95,18 +99,16 @@ void loop() {
   
   float T = dht.getTemperature();
   float H = dht.getHumidity ();
-  Serial.print("Humid: ");
-  Serial.print(H);
-  Serial.print(" % Temp: ");
-  Serial.print(T);
+  Serial.printf(" % Temp: %f", T);
+  Serial.printf("\tHumid: %f", H);
   
-  display.setCursor(0,0);
-  display.println("Temp: ");    
+//  display.setCursor(0,0);
+  display.print("Temp: ");
   display.println(T);
-  display.println("Humid: ");    
+  display.print("Humid: ");
   display.println(H);
   display.display();
-  delay(2000);
+  delay(1500);
   Serial.printf("\n");
   display.clearDisplay();
   display.display();
