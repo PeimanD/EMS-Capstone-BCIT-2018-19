@@ -4,7 +4,7 @@ LDC_DHT --> first code to connect ESP to Nokia LCD and read the tempreture readi
 
 HomeSweetHome-Web-pages-V1.0 --> first version of the website for "ecosuite.xyz" to attach to Heruko server
 
-![Screenshot](Wiring-diagram-prototype1.jpg) 
+![Screenshot](wiring-diagram-prototype1.JPG) 
 
 "Wiring diagram Prototype 1"
 
